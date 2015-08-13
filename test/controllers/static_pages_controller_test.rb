@@ -6,21 +6,21 @@ class StaticPagesControllerTest < ActionController::TestCase
     @base_title = 'Ruby on Rails tutorial app'
   end
 
-  test "should get home" do
+  test 'should get home' do
     get :home
     assert_select('title', "#{@base_title}")
     assert_response :success
 
   end
 
-  test "should get help" do
+  test 'should get help' do
     get :help
     assert_select('title', "Help | #{@base_title}")
     assert_response :success
 
   end
 
-  test "should get about" do
+  test 'should get about' do
     get :about
     assert_select('title', "About | #{@base_title}")
     assert_response :success

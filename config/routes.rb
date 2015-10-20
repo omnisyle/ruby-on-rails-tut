@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users
-
+  resources :account_activations , only: [:edit]
 
   get 'home' => 'static_pages#home'
   get 'help' => 'static_pages#help'

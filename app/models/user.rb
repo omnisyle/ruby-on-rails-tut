@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  has_many :microposts, dependent: :destroy
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
@@ -50,14 +51,20 @@ class User < ActiveRecord::Base
     UserMailer.account_activation(self).deliver_now
   end
 
+  #expire all password token that was sent more than 2 hours
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
 
+  #check if user is authenticated
   def authenticated? (attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
+  end
+  # define a proto feed
+  def feed
+    Micropost.where('user_id = ?', id)
   end
 
   private

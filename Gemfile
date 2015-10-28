@@ -10,6 +10,15 @@ gem 'sass-rails', '~> 5.0'
 #use bootstrap
 gem 'bootstrap-sass', '3.2.0.0'
 
+#image upload for rails
+gem 'carrierwave', '0.10.0'
+
+#resizing image with mini_magick
+gem 'mini_magick', '4.3.6'
+
+#fog gem
+gem 'fog', '1.35.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

@@ -32,8 +32,6 @@ class MicropostInterfaceTest < ActionDispatch::IntegrationTest
   		delete micropost_path first_micropost
   	end
 
-  	get user_path(users(:archer))
-
   end
 
 end

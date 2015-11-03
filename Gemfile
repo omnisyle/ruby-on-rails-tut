@@ -13,8 +13,6 @@ gem 'bootstrap-sass', '3.2.0.0'
 #image upload for rails
 gem 'carrierwave', '0.10.0'
 
-gem 'carrierwave-google_drive'
-
 #resizing image with mini_magick
 gem 'mini_magick', '4.3.6'
 
